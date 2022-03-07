@@ -1,5 +1,5 @@
 # Add all the application routes to the app.routes file
-->         /manage-transit-movements-amendment-frontend                    app.Routes
+->         /manage-transit-movements/amendment                    app.Routes
 ->         /                          health.Routes
 
 GET        /admin/metrics             @com.kenshoo.play.metrics.MetricsController.metrics
