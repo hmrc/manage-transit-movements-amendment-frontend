@@ -1,5 +1,5 @@
 import play.sbt.routes.RoutesKeys
-import sbt.Def
+import sbt.{Def, Resolver}
 import scoverage.ScoverageKeys
 import uk.gov.hmrc.DefaultBuildSettings
 import uk.gov.hmrc.versioning.SbtGitVersioning.autoImport.majorVersion
@@ -49,7 +49,8 @@ lazy val root = (project in file("."))
     retrieveManaged := true,
     evictionWarningOptions in update :=
       EvictionWarningOptions.default.withWarnScalaVersionEviction(false),
-    resolvers ++= Seq(Resolver.jcenterRepo),
+    resolvers ++= Seq(Resolver.jcenterRepo,
+      Resolver.bintrayRepo("hmrc", "releases")),
     // concatenate js
     Concat.groups := Seq(
       "javascripts/application.js" ->
